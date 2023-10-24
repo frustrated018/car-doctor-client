@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.svg"
 
 const Navbar = () => {
   const navItems = (
@@ -49,7 +50,7 @@ const Navbar = () => {
              {navItems}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+            <img src={logo} alt="Logo" className=" w-20" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -57,7 +58,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <a className="px-[20px] py-[15px] rounded-md font-semibold text-lg bg-white hover:bg-orange-600 border border-orange-600 text-orange-600 hover:text-white ">Appointment</a>
         </div>
       </div>
     </>
