@@ -1,11 +1,18 @@
+import AboutHome from "../Components/AboutHome/AboutHome";
 import CarouselHome from "../Components/CarouselHome/CarouselHome";
 
 const Home = () => {
   return (
-    <div className="my-[50px]">
-      {/* carousel */}
-      <CarouselHome></CarouselHome>
-    </div>
+      <div>
+        {/* Banners */}
+            <div className="my-[50px]">
+        <CarouselHome></CarouselHome>
+            </div>
+            {/* About section */}
+            <div className="my-32">
+            <AboutHome></AboutHome>
+            </div>
+      </div>
   );
 };
 
