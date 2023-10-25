@@ -13,23 +13,23 @@ const CarouselHome = () => {
           {/* Advirtisement and button with BG overlay */}
           <div className="absolute flex flex-col justify-center items-center left-0 w-full h-full bg-gradient-to-r from-[#151515] to-[#15151563]">
             <div className="text-white w-full h-full p-10">
-              <h2 className="text-white text-6xl font-bold leading-[75px] w-[436px]">
+              <h2 className="text-white text-6xl font-bold leading-[75px] w-[30%]">
                 Affordable Price For Car Servicing
               </h2>
-              <p className="w-[522px] text-white text-lg font-normal text-left capitalize leading-[30px] my-[30px]">
+              <p className="text-white text-lg font-normal w-[40%] capitalize leading-[30px] my-[30px]">
                 There are many variations of passages of available, but the
                 majority have suffered alteration in some form
               </p>
               {/* Buttons */}
               <div className="flex gap-2">
                 <a
-                  className="inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                  className="inline-block rounded border border-orange-600 bg-orange-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-orange-600 focus:outline-none focus:ring active:text-orange-500"
                   href="#"
                 >
                   Discover More
                 </a>
                 <a
-                  className="inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                  className="inline-block rounded border border-orange-600 bg-orange-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-orange-600 focus:outline-none focus:ring active:text-orange-500"
                   href="#"
                 >
                   Latest Project
