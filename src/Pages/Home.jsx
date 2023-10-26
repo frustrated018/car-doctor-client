@@ -1,6 +1,8 @@
 import AboutHome from "../Components/AboutHome/AboutHome";
 import CarouselHome from "../Components/CarouselHome/CarouselHome";
 import OurServices from "../Components/OurServices/OurServices";
+import Footer from "../Components/Footer/Footer";
+
 
 const Home = () => {
   return (
@@ -16,6 +18,8 @@ const Home = () => {
             <div className="my-32">
               <OurServices></OurServices>
             </div>
+            {/* Footer */}
+            <Footer></Footer>
       </div>
   );
 };
