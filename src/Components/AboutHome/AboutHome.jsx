@@ -19,7 +19,7 @@ const AboutHome = () => {
           {/* Text and button */}
           <div className=" lg:w-1/2">
             <h3 className="text-orange-600 text-xl font-bold">About Us</h3>
-            <div className="w-[376px] text-neutral-900 text-[45px] font-bold leading-tight mt-5 mb-7">
+            <div className="w-[376px] text-neutral-900 text-[45px] font-bold leading-tight mt-1 mb-7">
               We are qualified & of experience in this field
             </div>
             <p className="w-[489px] text-neutral-500 text-base font-normal capitalize leading-[30px] mt-5 mb-7">
