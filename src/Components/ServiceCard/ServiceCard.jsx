@@ -15,7 +15,7 @@ const ServiceCard = ({ service }) => {
           <h3 className="text-neutral-700 text-[25px] font-bold my-5">
             {title}
           </h3>
-          <div className="flex justify-around items-center">
+          <div className="flex justify-between items-center">
             <h4 className="text-left text-orange-600 text-xl font-semibold">
               Price : ${price}
             </h4>
