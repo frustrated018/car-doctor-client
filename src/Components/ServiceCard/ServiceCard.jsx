@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { BsArrowRight } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
-  const { img, title, price } = service;
+  const { _id, img, title, price } = service;
 
   return (
     <>
@@ -20,9 +21,11 @@ const ServiceCard = ({ service }) => {
               Price : ${price}
             </h4>
             {/* Button */}
-            <button className="w-10 h-6 text-[#FF3811]">
-              <BsArrowRight></BsArrowRight>
-            </button>
+            <Link to={`/checkout/${_id}`}>
+              <button className="w-10 h-6 text-[#FF3811]">
+                <BsArrowRight></BsArrowRight>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
