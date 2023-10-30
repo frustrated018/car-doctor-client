@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import sideImg from "../assets/images/login/login.svg";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
-
-  const {createUser} = useContext(AuthContext)
+  const { createUser } = useContext(AuthContext);
 
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -12,14 +13,27 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("Submit button clicked", email, password, name);
 
     createUser(email, password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-    })
-    .catch(error => console.log(error))
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        if (user) {
+          // Updating users diplayName
+
+          updateProfile(user, { displayName: name })
+            .then(() => {
+              // Displaying success message
+              Swal.fire({
+                icon: "success",
+                title: "Sign Up Successfull",
+                text: `Hi ${user?.displayName}!! Welcome to our site.`,
+              });
+            })
+            .catch((error) => console.error(error));
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import sideImg from "../assets/images/login/login.svg";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -19,6 +20,13 @@ const Login = () => {
     .then(result => {
       const user = result.user;
       console.log(user);
+      if (user) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successfull',
+          text: `Welcome back ${user?.displayName}!!!`,
+        })
+      }
     })
     .catch(error => console.error(error));
   };

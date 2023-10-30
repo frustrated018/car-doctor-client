@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg"
+import logo from "../../assets/logo.svg";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const navItems = (
     <>
       <li>
@@ -16,9 +26,13 @@ const Navbar = () => {
       <li>
         <Link>Blog</Link>
       </li>
-      <li>
-        <Link to={"/login"}>Login</Link>
-      </li>
+      {user ? (
+        <li onClick={handleLogOut}><Link>Log Out</Link></li>
+      ) : (
+        <li>
+          <Link to={"/login"}>Login</Link>
+        </li>
+      )}
     </>
   );
 
@@ -47,18 +61,18 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-             {navItems}
+              {navItems}
             </ul>
           </div>
-            <img src={logo} alt="Logo" className=" w-20" />
+          <img src={logo} alt="Logo" className=" w-20" />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {navItems}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="px-[20px] py-[15px] rounded-md font-semibold text-lg bg-white hover:bg-orange-600 border border-orange-600 text-orange-600 hover:text-white ">Appointment</a>
+          <a className="px-[20px] py-[15px] rounded-md font-semibold text-lg bg-white hover:bg-orange-600 border border-orange-600 text-orange-600 hover:text-white ">
+            Appointment
+          </a>
         </div>
       </div>
     </>
