@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import sideImg from "../assets/images/login/login.svg";
 import { AuthContext } from "../Providers/AuthProvider";
-import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContext);
@@ -24,20 +25,50 @@ const SignUp = () => {
           updateProfile(user, { displayName: name })
             .then(() => {
               // Displaying success message
-              Swal.fire({
-                icon: "success",
-                title: "Sign Up Successfull",
-                text: `Hi ${user?.displayName}!! Welcome to our site.`,
-              });
+              toast.success(`Hi ${user.displayName}! Welcome to our site!!`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+              form.reset();
             })
-            .catch((error) => console.error(error));
+            .catch((error) => {
+              console.log(error);
+              toast.error(`${error}`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+              });
+            });
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        toast.error(`${error}`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
   };
 
   return (
-    <div>
+    <>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col-reverse lg:flex-row">
           <div>
@@ -114,7 +145,8 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-    </div>
+      <ToastContainer></ToastContainer>
+    </>
   );
 };
 

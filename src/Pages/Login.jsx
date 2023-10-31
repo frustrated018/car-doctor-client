@@ -1,12 +1,11 @@
 import { useContext } from "react";
 import sideImg from "../assets/images/login/login.svg";
 import { AuthContext } from "../Providers/AuthProvider";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-
-
-  const {signIn} = useContext(AuthContext)
+  const { signIn } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -15,20 +14,37 @@ const Login = () => {
     const password = form.password.value;
     console.log("Submit button clicked", email, password);
 
-    
     signIn(email, password)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-      if (user) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Login Successfull',
-          text: `Welcome back ${user?.displayName}!!!`,
-        })
-      }
-    })
-    .catch(error => console.error(error));
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        if (user) {
+          toast.success(`Hi ${user.displayName}! Welcome Back!!`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          form.reset();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`${error}`, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      });
   };
 
   return (
@@ -93,6 +109,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
