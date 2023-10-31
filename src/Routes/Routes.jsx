@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Checkout from "../Pages/Checkout";
-
+import Orders from "../Pages/Orders";
 
 const router = createBrowserRouter([
   {
@@ -16,17 +16,22 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/signup',
-        element: <SignUp></SignUp>
+        path: "/signup",
+        element: <SignUp></SignUp>,
       },
       {
-        path: '/checkout/:id',
-        element:<Checkout></Checkout>,
-        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/orders",
+        element: <Orders></Orders>,
       },
     ],
   },
